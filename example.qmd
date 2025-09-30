@@ -3,21 +3,12 @@
 Below is a demo of the `crossref-cards` shortcode pulling data from `topics.json`
 by including the following code in is example QMD
 
-```
-{{< crossref-cards file="topics.json" >}}
-```
-
-{{< crossref-cards file="topics.json" >}}
+{{< crossref-cards file="topics.yml" >}}
 
 ---
 
 ## How to try it yourself
 
-- Edit `topics.json` to add your own topics.  
-- Rebuild with `quarto preview example.qmd`.  
-- Switch between styles by editing `_quarto.yml`:
-
-```{yaml}
-crossref-cards:
-  style: ss4s
-```
+- Edit `topics.json` to add your own topics  
+- Rebuild with `quarto preview example.qmd`
+- Customize styles by adapting ![cards-ss4s-example.scss]

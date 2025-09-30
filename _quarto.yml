@@ -1,6 +1,7 @@
 project:
   type: website
-
+  resources: 
+    - topics.yml
 format:
   html:
     theme: cosmo

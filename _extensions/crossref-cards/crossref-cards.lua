@@ -1,29 +1,34 @@
-function Shortcodes (sc)
-  if sc.name == "crossref-cards" then
-    local file = sc.args.file
-    if not file then
-      error("crossref-cards shortcode requires a 'file' argument, e.g. {{< crossref-cards file=\"topics.json\" >}}")
-    end
+-- crossref-cards.lua
+-- Quarto shortcode: {{< crossref-cards file="topics.yml" >}}
 
-    local style = sc.args.style or quarto.project.options["crossref-cards"].style or "bootstrap"
-    local cssfile = "cards-" .. style .. ".css"
+local function crossref_cards(args, kwargs, meta)
+  local file = kwargs["file"] or "topics.yml"
 
-    -- inject CSS at build time (before user css)
-    quarto.doc.include_file("after-body", cssfile)
+  -- read scaffold HTML
+  local f_html = io.open(quarto.utils.resolve_path("cards.html"), "r")
+  local html = f_html and f_html:read("*all") or ""
+  if f_html then f_html:close() end
 
-    -- read scaffold HTML
-    local f = io.open("cards.html", "r")
-    local html = f:read("*all")
-    f:close()
+  -- read scaffold JS
+  local f_js = io.open(quarto.utils.resolve_path("cards.js"), "r")
+  local js = f_js and f_js:read("*all") or ""
+  if f_js then f_js:close() end
 
-    return pandoc.RawBlock("html", [[
+  return pandoc.RawBlock("html", [[
 <div class="crossref-cards">
 ]] .. html .. [[
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <script>
-    window.crossrefCardsDataFile = "]] .. file .. [[";
+    window.crossrefCardsFile = "]] .. file .. [[";
   </script>
-  <script src="cards.js"></script>
+  <script>
+]] .. js .. [[
+  </script>
 </div>
 ]])
-  end
 end
+
+return {
+  ["crossref-cards"] = crossref_cards
+}
+

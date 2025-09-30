@@ -1,5 +1,14 @@
 [
   {
+    "title": "Social Change",
+    "desc": 
+    "A catch-all category comprised of *social influence* and *social learning*.",
+    "children": ["Social Influence", "Social Learning"]
+  },
+
+  { 
+    "title": 
+  {
     "title": "Group Polarization",
     "desc": "Groups tend to adopt more extreme positions than the average of their members.",
     "tags": ["Social Psychology", "Sociology", "Opinion Dynamics"]
@@ -15,4 +24,6 @@
     "tags": ["Evolutionary Anthropology", "Cultural Evolution", 
              "Epidemiology", "Social Psychology"]
   }
+ "children": "Opinion Dynamics", "Prevalence Dynamics"]
 ]
+
