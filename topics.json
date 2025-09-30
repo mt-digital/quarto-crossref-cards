@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Group Polarization",
+    "desc": "Groups tend to adopt more extreme positions than the average of their members.",
+    "tags": ["Social Psychology", "Sociology", "Opinion Dynamics"]
+  },
+  {
+    "title": "Opinion Dynamics",
+    "desc": "Mathematical and computational models of how opinions evolve through interaction.",
+    "tags": ["Network Science", "Complex Systems", "Sociology"]
+  },
+  {
+    "title": "Prevalence Dynamics",
+    "desc": "How the frequency of behaviors or traits changes in populations over time.",
+    "tags": ["Evolutionary Anthropology", "Cultural Evolution", 
+             "Epidemiology", "Social Psychology"]
+  }
+]

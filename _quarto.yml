@@ -1,0 +1,9 @@
+project:
+  type: website
+
+format:
+  html:
+    theme: cosmo
+
+crossref-cards:
+  style: bootstrap    # or "ss4s"

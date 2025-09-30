@@ -1,0 +1,19 @@
+title: Cross-reference Cards
+author: Matt Turner <matt@mat.phd>
+version: 0.1.0
+quarto-required: ">=1.4.0"
+
+contributes:
+  shortcodes:
+    - crossref-cards.lua
+  options:
+    style:
+      type: string
+      default: bootstrap
+      description: |
+        Which stylesheet to use. Options: "bootstrap", "ss4s", or user-provided CSS file.
+  resources:
+    - cards.html
+    - cards.js
+    - cards-bootstrap.css
+    - cards-ss4s.css
