@@ -1,0 +1,40 @@
+<!-- Scaffold container for crossref-cards -->
+<div class="hierarchy-view">
+  <div class="row parents"></div>
+  <div class="row siblings"></div>
+  <div class="row children"></div>
+</div>
+
+<style>
+  .hierarchy-view {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  .row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .crossref-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    max-width: 220px;
+    background: #fafafa;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .crossref-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .crossref-card.focal {
+    border: 2px solid #007acc;
+    background: #eef6ff;
+  }
+</style>
+
