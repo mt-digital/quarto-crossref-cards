@@ -1,8 +1,9 @@
-# Quarto-crossref-cards Extension For Quarto
+# "Crossreference Cards" Extension For Quarto
+## Create 
 
-This extension adds a `crossref-cards` shortcode for displaying searchable, filterable reference cards backed by a `.json` file.  
+This extension adds a `crossref-cards` shortcode for displaying searchable, filterable reference cards the user provides in structured `.json` files.  
 
-It’s useful for building small compendia or cross-references (e.g. *Social Science for Sustainability* topics, book recommendations, etc.).  
+I made it to build compendia of cross-referenced information to understand theoretical connections and differences between different social science disciplines for my research and teaching, especially for *Social Science for Sustainability*.  
 
 For example:
 
