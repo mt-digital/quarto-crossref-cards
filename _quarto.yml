@@ -1,10 +1,10 @@
 project:
   type: website
   resources: 
-    - topics.yml
+    - social-science-topics.yml
 format:
   html:
-    theme: cosmo
-
-crossref-cards:
-  style: bootstrap    # or "ss4s"
+    # css: neon.css
+    # css: forest.css
+    css: blue.css
+    # css: orange.css

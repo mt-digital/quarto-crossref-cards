@@ -3,6 +3,7 @@
 
 local function crossref_cards(args, kwargs, meta)
   local file = kwargs["file"] or "topics.yml"
+  local style = kwargs["style"] or "default"
 
   -- read scaffold HTML
   local f_html = io.open(quarto.utils.resolve_path("cards.html"), "r")
@@ -15,6 +16,7 @@ local function crossref_cards(args, kwargs, meta)
   if f_js then f_js:close() end
 
   return pandoc.RawBlock("html", [[
+
 <div class="crossref-cards">
 ]] .. html .. [[
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>

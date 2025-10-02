@@ -33,19 +33,106 @@ function createCard(item, isFocal = false) {
 }
 
 // Render hierarchy around focal
+/* function renderHierarchy() { */
+
+/*   const parentsRow = document.querySelector(".row.parents"); */
+/*   const siblingsRow = document.querySelector(".row.siblings"); */
+/*   const childrenRow = document.querySelector(".row.children"); */
+
+/*   parentsRow.innerHTML =  "<b>Parent topic:</b>"; */
+/*   siblingsRow.innerHTML = "<b>Focal topic and siblings:</b>"; */
+/*   childrenRow.innerHTML = "<b>Children topics:</b>"; */
+
+/*   const focalItem = topicMap[focal]; */
+/*   if (!focalItem) return; */
+
+/*   // Parents */
+/*   if (focalItem.parent && topicMap[focalItem.parent]) { */
+/*     const parentItem = topicMap[focalItem.parent]; */
+/*     parentsRow.appendChild(createCard(parentItem)); */
+/*   } */
+
+/*   // Siblings (including focal) */
+/*   if (focalItem.parent && topicMap[focalItem.parent]) { */
+/*     const parent = topicMap[focalItem.parent]; */
+/*     (parent.children || []).forEach(childTitle => { */
+/*       const childItem = topicMap[childTitle]; */
+/*       if (childItem) { */
+/*         siblingsRow.appendChild(createCard(childItem, childTitle === focal)); */
+/*       } */
+/*     }); */
+/*   } else { */
+/*     // No parent: just show focal */
+/*     siblingsRow.appendChild(createCard(focalItem, true)); */
+/*   } */
+
+/*   // Children */
+/*   (focalItem.children || []).forEach(childTitle => { */
+/*     const childItem = topicMap[childTitle]; */
+/*     if (childItem) { */
+/*       childrenRow.appendChild(createCard(childItem)); */
+/*     } */
+/*   }); */
+/* } */
+// Render hierarchy around focal
 function renderHierarchy() {
+  const breadcrumbDiv = document.getElementById("breadcrumbs");
+  if (breadcrumbDiv) breadcrumbDiv.innerHTML = "";
+
   const parentsRow = document.querySelector(".row.parents");
   const siblingsRow = document.querySelector(".row.siblings");
   const childrenRow = document.querySelector(".row.children");
 
-  parentsRow.innerHTML = "";
-  siblingsRow.innerHTML = "";
-  childrenRow.innerHTML = "";
+  parentsRow.innerHTML = "<b>Parent topic:</b>";
+  siblingsRow.innerHTML = "<b>Focal topic and siblings:</b>";
+  childrenRow.innerHTML = "<b>Children topics:</b>";
 
+  // Get focal item safely
   const focalItem = topicMap[focal];
-  if (!focalItem) return;
+  if (!focalItem) {
+    console.warn("No focalItem found for:", focal);
+    return;
+  }
 
-  // Parents
+  // --------- Breadcrumbs ---------
+  let chain = [];
+  let current = focalItem;
+
+  while (current) {
+    chain.unshift(current); // prepend current item
+    const parentTitle = current.parent;
+    if (parentTitle && topicMap[parentTitle]) {
+      current = topicMap[parentTitle];
+    } else {
+      current = null;
+    }
+  }
+
+  chain.forEach((item, i) => {
+    if (i > 0) {
+      const sep = document.createElement("span");
+      sep.className = "sep";
+      sep.textContent = "›";
+      breadcrumbDiv.appendChild(sep);
+    }
+
+    if (i === chain.length - 1) {
+      // focal node: bold, no link
+      const span = document.createElement("span");
+      span.className = "breadcrumb-current";
+      span.textContent = item.title;
+      breadcrumbDiv.appendChild(span);
+    } else {
+      // clickable ancestor
+      const link = document.createElement("a");
+      link.textContent = item.title;
+      link.addEventListener("click", () => setFocal(item.title, true));
+      breadcrumbDiv.appendChild(link);
+    }
+  });
+
+  // --------- Hierarchy rows ---------
+  // Parent
   if (focalItem.parent && topicMap[focalItem.parent]) {
     const parentItem = topicMap[focalItem.parent];
     parentsRow.appendChild(createCard(parentItem));
@@ -73,6 +160,7 @@ function renderHierarchy() {
     }
   });
 }
+
 
 function setFocal(title, push = false) {
   focal = title;

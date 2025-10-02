@@ -1,123 +1,73 @@
 # "Crossreference Cards" Extension For Quarto
-## Create 
 
-This extension adds a `crossref-cards` shortcode for displaying searchable, filterable reference cards the user provides in structured `.json` files.  
+This extension adds a `crossref-cards` shortcode to Quarto for displaying 
+searchable, filterable reference cards the user provides in structured yaml files 
+(extension `.yml`).  
 
-I made it to build compendia of cross-referenced information to understand theoretical connections and differences between different social science disciplines for my research and teaching, especially for *Social Science for Sustainability*.  
+I made it to build a compendium of cross-referenced information to understand theoretical connections and differences between different social science disciplines for my research and teaching in *Social Science for Sustainability*.  
 
-For example:
+## Use
 
-```qmd
-{{< crossref-cards file="topics.json" >}}
-```
+Just place the following shortcode command where you want the table:
 
----
+```{shortcodes=false}
+{{< crossref-cards file="social-science-topics.yml" >}}
+``` 
 
-## Installing
-
-```bash
-quarto add mt-digital/quarto-crossref-cards
-```
-
-This will install the extension under the `_extensions` subdirectory.  
-If you're using version control, you will want to check in this directory.  
-
-For local dev:  
-
-```bash
-quarto install extension ./quarto-crossref-cards
-```
-
-or symlink it:
-
-```bash
-cd my-project/_extensions
-ln -s ~/dev/quarto-crossref-cards .
-```
-
----
-
-## Using
-
-1. Create a JSON file with your content. Example (`topics.json`):
-
-   ```json
-   [
-     {
-       "title": "Group Polarization",
-       "desc": "Groups adopt more extreme positions than individuals.",
-       "tags": ["Social Psychology", "Sociology", "Opinion Dynamics"]
-     },
-     {
-       "title": "Opinion Dynamics",
-       "desc": "Models of how opinions evolve through social interaction.",
-       "tags": ["Network Science", "Sociology", "Complex Systems"]
-     }
-   ]
-   ```
-
-2. Call the shortcode in your `.qmd`:
-
-   ```qmd
-   {{< crossref-cards file="topics.json" >}}
-   ```
-
-3. That will render a grid of cards with:  
-   - Live search box  
-   - Tag filters with reset button  
-   - Clickable tag badges on each card  
-
----
-
-## Options
-
-You can choose which built-in stylesheet to use:
+If you change the name of the topics yaml file you'll need to update the [_quarto.yml](https://github.com/mt-digital/quarto-crossref-cards/quarto.yml) 
+as well that goes with `examples.qmd`. Here is the current one where the example uses the default theme (`format` options all commented out).
 
 ```yaml
-crossref-cards:
-  style: bootstrap   # or "ss4s"
+project:
+  type: website
+  resources: 
+    - social-science-topics.yml  # <-- CHANGE THIS IF YOU CHANGE THE .yml FILE NAME
+#format:
+#  html:
+    # css: neon.css
+    # css: forest.css
+#    css: blue.css
+    # css: orange.css
 ```
 
-Per-page override:
-
-```qmd
-{{< crossref-cards file="topics.json" style="ss4s" >}}
-```
-
-- **bootstrap** → minimal vanilla Bootstrap look  
-- **ss4s** → styled to match *Social Science for Sustainability*  
-
-Advanced: you can also override styles completely with your own CSS. Just add:  
+To use the neon theme, change `_quarto.yml` like so:
 
 ```yaml
+project:
+  type: website
+  resources: 
+    - social-science-topics.yml  # <-- CHANGE THIS IF YOU CHANGE THE .yml FILE NAME
+
 format:
   html:
-    css: custom-cards.css
+    css: neon.css
+    # css: forest.css
+    # css: blue.css
+    # css: orange.css
 ```
 
-Any rules in `custom-cards.css` will cascade after the extension defaults.
+See the examples below for how this looks with different themes. 
 
----
+## Themes
 
-## Try it yourself!
+The default theme is meant to match [Social Science for Sustainability](https://SocSci-for-Sustainability.github.io) branding. I included additional .css files in the [root directory of the extension repository](https://github.com/mt-digital/quarto-crossref-cards/) that can be freely downloaded and used. 
 
-Edit the example to test your own:  
+### Default
 
-- [example.qmd](example.qmd) demonstrates the shortcode.  
-- [topics.json](topics.json) provides a simple dataset.  
+![](images/default.png)
 
----
+### Neon
 
-⚡ Next step: share your `cards-bootstrap.css` and `cards-ss4s.css` then update this README with screenshots so people can see the difference and download your styles if they like them. 
+![](images/neon.png)
 
+### Forest
 
-### Bootstrap Style
-![Bootstrap cards screenshot](screenshots/bootstrap.png)
+![](images/forest.png)
 
-### SS4S Style
-![SS4S cards screenshot](screenshots/ss4s.png)
+### Blue
 
+![](images/blue.png)
 
+### Orange
 
-
----
+![](images/orange.png)

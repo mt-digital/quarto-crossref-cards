@@ -1,8 +1,9 @@
 <!-- Scaffold container for crossref-cards -->
 <div class="hierarchy-view">
-  <div class="row parents"></div>
-  <div class="row siblings"></div>
-  <div class="row children"></div>
+  <div id="breadcrumbs" class="breadcrumbs"></div>
+  <div id="parents-row" class="row parents"></div>
+  <div id="siblings-row" class="row siblings"></div>
+  <div id="children-row" class="row children"></div>
 </div>
 
 <style>
@@ -18,23 +19,64 @@
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+  }
+  #parents-row {
+    background: #e0e4ec;
+    padding-top: 0.75rem;   /* add vertical space above */
+    padding-bottom: 0.75rem;/* add vertical space below */
+  }
+  #siblings-row {
+    background: #70E38D;
+    padding-top: 0.75rem;   /* add vertical space above */
+    padding-bottom: 0.75rem;/* add vertical space below */
+  }
+  #children-row {
+    background: #D5E3FC;
+    padding-top: 0.75rem;   /* add vertical space above */
+    padding-bottom: 0.75rem;/* add vertical space below */
   }
   .crossref-card {
-    border: 1px solid #ccc;
+    border: 1px solid #007acc;
     border-radius: 8px;
     padding: 1rem;
     max-width: 220px;
-    background: #fafafa;
+    background: #eef6ff;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .crossref-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 2px solid #ca5390;
+    background: #ffeaf2;
   }
   .crossref-card.focal {
-    border: 2px solid #007acc;
-    background: #eef6ff;
+    border: 2px solid #ca5390;
+    background: #ffeaf2;
   }
+
+div#breadcrumbs a {
+  color: #007acc;                 /* default blue */
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s, text-decoration-color 0.2s;
+  font-weight: bold;
+}
+
+div#breadcrumbs a:hover {
+  color: #ca5390;                 /* same as card hover border */
+  text-decoration: underline;
+  text-decoration-color: #ca5390; /* sync underline with hover color */
+  font-weight: bold;
+}
+
+.breadcrumbs .sep {
+  margin: 0 0.3rem;
+  color: #666;
+}
+
+.breadcrumbs .breadcrumb-current {
+  color: #333;                    /* darker, not clickable */
+}
+  
 </style>
 

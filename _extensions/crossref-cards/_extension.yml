@@ -15,5 +15,3 @@ contributes:
   resources:
     - cards.html
     - cards.js
-    - cards-bootstrap.css
-    - cards-ss4s.css

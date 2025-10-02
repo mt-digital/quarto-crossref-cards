@@ -1,0 +1,29 @@
+#parents-row { background: #ccffff !important; }
+#siblings-row { background: #ffccff !important; }
+#children-row { background: #ccffcc !important; }
+
+.crossref-card {
+  background: #f2f2f2 !important;
+  border: 1px solid #ff00ff !important;
+}
+.crossref-card:hover {
+  background: #ffffcc !important;
+  border: 2px solid #00ffff !important;
+}
+.crossref-card.focal {
+  background: #ffe6ff !important;
+  border: 2px solid #ff6600 !important;
+}
+
+.breadcrumbs a { color: #ff00cc !important; }
+.breadcrumbs a:hover {
+  color: #00cccc !important;
+  text-decoration: underline !important;
+  text-decoration-color: #00cccc !important;
+}
+.breadcrumbs .sep { color: #666 !important; }
+.breadcrumbs .breadcrumb-current {
+  font-weight: bold !important;
+  color: #ff6600 !important;
+}
+

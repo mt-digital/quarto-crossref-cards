@@ -1,0 +1,89 @@
+- title: Social Change
+  desc: >
+    Change in opinions (latent, internal) or behavior prevalence (observable).
+  children:
+    - Opinion Dynamics
+    - Prevalence Dynamics
+
+
+#------ OPINION DYNAMICS ------------
+
+- title: Opinion Dynamics
+  desc: >
+    Measure and predict the change of *opinions* over time—or, equivalently, the change of *beliefs* or *attitudes*.
+  children: 
+    - Group Polarization
+    - Polarization
+    - Social Influence
+    - Social Networks
+
+- title: Group Polarization
+  children: 
+  - Ordinal Regression
+- title: Polarization
+
+- title: Ordinal Regression
+  desc: >
+    Standard model for inferring change in latent, continuous psychological variables by measuring discrete behaviors such as reporting one's opinion by mouse click or pencil mark on an opinion survey.
+  references:
+    - "@Kruschke2015, Chapter 23"
+    - "@Liddell2018"
+
+- title: Social Influence
+  desc: >
+    One's opinions are *influenced* by others' opinions through communication.
+  children:
+    - Bounded Confidence
+    - Social Forces
+
+- title: Social Forces
+  desc: >
+    Social influence model where the interpersonal effects of discourse are modeled as forces:
+    interaction leads individuals to concur more (consensus/attraction), 
+    less (anti-consensus/repulsion), or have no effect (inert). Includes stubborn extremism, where
+    extremism and stubbornness are so that radicals have more social "inertia"
+    than moderates. This means moderate opinions are constantly pulled to
+    extremes if there are a sufficient number of extremists around.
+  children:
+    - Biased Assimilation
+    - Consensus
+    - Conformity
+    - Anti-consensus
+    
+- title: Biased Assimilation
+- title: Consensus
+- title: Anti-consensus
+
+
+#------ PREVALENCE DYNAMICS ------------
+
+- title: Prevalence Dynamics
+  children: 
+    - Learning
+    - Social Networks
+
+- title: Learning
+  children:
+    - Vicarity Learning Model
+    - Conformist Learning Model
+    - Contagion Learning Model
+
+- title: Vicarity Learning Model
+- title: Conformist Learning Model
+- title: Contagion Learning Model
+  
+
+#------- BOTH/NEITHER/MISCELLANEOUS -----
+
+- title: Conformity
+
+- title: Social Networks
+  children:
+    - Small World Network
+    - Homophily Network
+    - Core-Periphery Network
+
+
+- title: Small World Network
+- title: Homophily Network
+- title: Core-Periphery Network

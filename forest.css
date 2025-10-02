@@ -1,0 +1,29 @@
+#parents-row { background: #e6f2e6 !important; }
+#siblings-row { background: #99cc99 !important; }
+#children-row { background: #c2e0c2 !important; }
+
+.crossref-card {
+  background: #f5fff5 !important;
+  border: 1px solid #339933 !important;
+}
+.crossref-card:hover {
+  background: #e6ffe6 !important;
+  border: 2px solid #267326 !important;
+}
+.crossref-card.focal {
+  background: #ccffcc !important;
+  border: 2px solid #1a4d1a !important;
+}
+
+.breadcrumbs a { color: #267326 !important; }
+.breadcrumbs a:hover {
+  color: #1a4d1a !important;
+  text-decoration: underline !important;
+  text-decoration-color: #1a4d1a !important;
+}
+.breadcrumbs .sep { color: #336633 !important; }
+.breadcrumbs .breadcrumb-current {
+  font-weight: bold !important;
+  color: #0d260d !important;
+}
+

@@ -1,0 +1,51 @@
+/* orange.css — override theme with !important */
+
+/* Parent row background */
+#parents-row {
+  background: #ffe5cc !important;   /* light orange */
+}
+
+/* Siblings row background */
+#siblings-row {
+  background: #ffbf80 !important;   /* medium orange */
+}
+
+/* Children row background */
+#children-row {
+  background: #ffd1a3 !important;   /* deeper orange */
+}
+
+/* Default card */
+.crossref-card {
+  background: #fff2e6 !important;   /* very pale orange */
+  border: 1px solid #ff9933 !important;
+}
+
+/* Hover state */
+.crossref-card:hover {
+  background: #ffe0cc !important;
+  border: 2px solid #ff6600 !important;
+}
+
+/* Focal card */
+.crossref-card.focal {
+  background: #ffd9b3 !important;
+  border: 2px solid #e65c00 !important;
+}
+
+/* Breadcrumbs */
+.breadcrumbs a {
+  color: #ff8000 !important;                 
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: color 0.2s, text-decoration-color 0.2s !important;
+}
+
+.breadcrumbs a:hover {
+  color: #e65c00 !important;                 
+  text-decoration: underline !important;
+  text-decoration-color: #e65c00 !important; 
+}
+
+.
+
