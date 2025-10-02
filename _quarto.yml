@@ -4,7 +4,7 @@ project:
     - social-science-topics.yml
 format:
   html:
-    # css: neon.css
+    css: neon.css
     # css: forest.css
-    css: blue.css
+    # css: blue.css
     # css: orange.css
